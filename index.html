@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Punto Grafic JYD</title><link rel="stylesheet" href="styles.css"></head>
+<body>
+<div class="site">
+<header>
+  <a class="logo" data-page="inicio"><span class="mark">P</span><span>PUNTO <b>GRAFIC</b> JYD</span></a>
+  <nav><button data-page="inicio">Inicio</button><button data-page="productos">Producto</button><button data-page="nosotros">Nosotros</button><button data-page="contacto">Contacto</button></nav>
+</header>
+
+<main>
+<section id="inicio" class="page active">
+  <div class="hero">
+    <div class="hero-copy"><small>SOLUCIONES GRÁFICAS</small><h1>IMPRESIÓN QUE DA<br>VIDA <i>A TUS IDEAS</i></h1><p>Soluciones gráficas de calidad<br>para tus negocios y proyectos.</p><button class="cta" data-page="productos">VER PRODUCTOS</button></div>
+    <div class="hero-art"><div class="arc a1"></div><div class="arc a2"></div><div class="sheet"></div><div class="printer"></div></div>
+  </div>
+  <div class="quick"><div><img src="img/tarjetas.svg"><b>TARJETAS</b></div><div><img src="img/volantes.svg"><b>VOLANTES</b></div><div><img src="img/afiches.svg"><b>AFICHES</b></div></div>
+  <div class="bottom-info"><div><b>PUNTO GRAFIC JYD</b><p>Soluciones gráficas<br>con pasión y calidad.</p></div><div><b>ENLACE</b><p>Inicio<br>Productos<br>Nosotros<br>Contacto</p></div><div><b>HORARIO</b><p>Lun - Vie: 8:00am - 6:00pm<br>Sáb: 9:00am - 1:00pm</p></div><div><b>CATEGORÍA</b><p>Tarjetas<br>Volantes<br>Afiches<br>Stickers</p></div></div>
+</section>
+
+<section id="productos" class="page">
+  <div class="section-title"><h2>NUESTROS PRODUCTOS</h2><p>Encuentra la mejor opción para tu proyecto</p></div>
+  <div class="products">
+    <article><img src="img/tarjetas.svg"><b>TARJETAS</b><button data-page="contacto">VER MÁS</button></article>
+    <article><img src="img/volantes.svg"><b>VOLANTES</b><button data-page="contacto">VER MÁS</button></article>
+    <article><img src="img/afiches.svg"><b>AFICHES</b><button data-page="contacto">VER MÁS</button></article>
+    <article><img src="img/stickers.svg"><b>STICKERS</b><button data-page="contacto">VER MÁS</button></article>
+    <article><img src="img/packaging.svg"><b>PACKAGING</b><button data-page="contacto">VER MÁS</button></article>
+    <article><img src="img/personalizado.svg"><b>PERSONALIZADO</b><button data-page="contacto">VER MÁS</button></article>
+    <article><img src="img/otros.svg"><b>OTROS</b><button data-page="contacto">VER MÁS</button></article>
+  </div>
+</section>
+
+<section id="nosotros" class="page about">
+  <div class="about-text"><small>SOMOS</small><h2>PUNTO <i>GRAFIC JYD</i></h2><p>Somos una empresa dedicada a brindar soluciones gráficas integrales con calidad, creatividad y compromiso.</p><p>Nos especializamos en diseño e impresión para empresas, emprendimientos y proyectos.</p><button class="cta" data-page="contacto">CONTÁCTANOS</button></div>
+  <div class="features"><div><strong>◉ VISIÓN</strong><p>Ser líderes en soluciones gráficas innovadoras.</p></div><div><strong>✓ CALIDAD</strong><p>Materiales y procesos que garantizan excelentes resultados.</p></div><div><strong>✦ CREATIVIDAD</strong><p>Diseños que comunican, inspiran y hacen destacar tu marca.</p></div><div><strong>▶ VIDEOS</strong><p>Contenido moderno para tu negocio.</p></div></div>
+</section>
+
+<section id="contacto" class="page contact">
+  <div class="section-title"><h2>CONTÁCTANOS</h2><p>Estamos listos para ayudarte con tu proyecto</p></div>
+  <div class="contact-grid"><form onsubmit="send(event)"><input required placeholder="Nombre"><input required type="email" placeholder="Correo electrónico"><input placeholder="Teléfono"><textarea required placeholder="Mensaje"></textarea><button class="cta">ENVIAR MENSAJE</button></form><div class="map"><div class="roads"></div><span>📍 TU UBICACIÓN</span></div></div>
+</section>
+</main>
+<footer>©2024 Gran Formato Gigantografías. Todos los derechos reservados</footer>
+</div>
+<script>
+const pages=[...document.querySelectorAll('.page')];
+function go(id){pages.forEach(p=>p.classList.toggle('active',p.id===id));window.scrollTo({top:0,behavior:'instant'});history.replaceState(null,'','#'+id)}
+document.querySelectorAll('[data-page]').forEach(x=>x.addEventListener('click',()=>go(x.dataset.page)));
+function send(e){e.preventDefault();alert('¡Gracias! Tu mensaje fue enviado.');e.target.reset()}
+go(location.hash.slice(1)||'inicio');
+</script>
+</body></html>
